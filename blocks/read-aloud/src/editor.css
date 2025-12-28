@@ -1,0 +1,7 @@
+.read-aloud {
+	box-shadow: 0 0 0 1px rgba(0, 229, 255, 0.25);
+}
+
+.read-aloud__content {
+	min-height: 120px;
+}

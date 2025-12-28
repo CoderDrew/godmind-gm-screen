@@ -1,0 +1,43 @@
+# Node modules
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build artifacts (we'll keep build files for deployment, but you can exclude if preferred)
+# Uncomment the lines below if you want to exclude build files and rebuild on deployment
+# **/build/*.js
+# **/build/*.css
+# **/build/*.asset.php
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+.buildpath
+
+# Temporary files
+*.tmp
+*.bak
+*.cache
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log

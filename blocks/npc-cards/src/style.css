@@ -1,0 +1,21 @@
+.npc-card {
+	border: 1px solid #334155;
+	background: #020617;
+	padding: 1rem;
+	border-radius: 6px;
+}
+
+.npc-card__name {
+	color: #e5e7eb;
+	margin: 0 0 0.25rem 0;
+}
+
+.npc-card__role {
+	font-size: 0.75rem;
+	color: #94a3b8;
+}
+
+.npc-card__description {
+	font-size: 0.9rem;
+	color: #cbd5f5;
+}

@@ -1,0 +1,25 @@
+{
+  "apiVersion": 3,
+  "name": "godmind/gm-notes",
+  "title": "GM Notes",
+  "category": "text",
+  "icon": "editor-ul",
+  "description": "Collapsible GM-only notes for scene guidance and branching logic.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "content": {
+      "type": "string",
+      "source": "html",
+      "selector": ".gm-notes__content"
+    },
+    "isOpen": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "editorScript": "file:./build/index.js",
+  "editorStyle": "file:./build/index.css",
+  "style": "file:./build/style-index.css"
+}

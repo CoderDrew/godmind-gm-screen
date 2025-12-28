@@ -1,0 +1,13 @@
+.gm-notes {
+	border-left: 4px solid #b91c1c;
+	background: #1f2933;
+	padding: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+.gm-notes__header {
+	font-size: 0.75rem;
+	letter-spacing: 0.08em;
+	color: #f87171;
+	margin-bottom: 0.5rem;
+}

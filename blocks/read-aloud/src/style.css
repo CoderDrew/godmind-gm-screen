@@ -1,0 +1,44 @@
+.read-aloud {
+	background: linear-gradient(
+		180deg,
+		rgba(20, 30, 36, 0.9),
+		rgba(16, 22, 28, 0.9)
+	);
+	border-left: 4px solid #00e5ff;
+	border-radius: 8px;
+	padding: 1.25rem 1.5rem;
+	margin: 2rem 0;
+	color: #e6f1f5;
+}
+
+.read-aloud__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+
+.read-aloud__label {
+	font-size: 0.75rem;
+	letter-spacing: 0.08em;
+	color: #00e5ff;
+	font-weight: 600;
+}
+
+.read-aloud__copy {
+	background: rgba(255, 255, 255, 0.06);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	color: #cdeff7;
+	border-radius: 6px;
+	padding: 0.35rem 0.75rem;
+	cursor: pointer;
+}
+
+.read-aloud__copy:hover {
+	background: rgba(0, 229, 255, 0.15);
+}
+
+.read-aloud__content p {
+	margin: 0 0 1em;
+	line-height: 1.6;
+}
