@@ -6,16 +6,13 @@ if (empty($content)) {
 }
 ?>
 
-<div class="read-aloud">
-    <div class="read-aloud__header">
+<div class="read-aloud is-open">
+    <button class="read-aloud__header" type="button" aria-expanded="true">
         <span class="read-aloud__label">READ ALOUD</span>
-        <button
-            class="read-aloud__copy"
-            type="button"
-            onclick="navigator.clipboard.writeText(this.closest('.read-aloud').querySelector('.read-aloud__content')?.innerText || '')">
-            Copy
-        </button>
-    </div>
+        <svg class="read-aloud__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="4 6 8 10 12 6"></polyline>
+        </svg>
+    </button>
 
     <div class="read-aloud__content">
         <?php echo wp_kses_post(wpautop($content)); ?>

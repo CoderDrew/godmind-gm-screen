@@ -17,8 +17,6 @@ add_action('init', function () {
         'menu_icon'     => 'dashicons-businessperson',
         'supports'      => [
             'title',
-            'editor',      // Stats / abilities / tactics
-            'thumbnail',   // Portrait
             'revisions',
         ],
     ]);

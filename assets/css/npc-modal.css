@@ -1,0 +1,548 @@
+/**
+ * NPC Modal Styles
+ * Cyberpunk-themed modal for displaying full NPC details
+ */
+
+/* Modal Container */
+.gm-npc-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.gm-npc-modal.is-open,
+.gm-npc-modal.is-closing {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Overlay */
+.gm-npc-modal__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.gm-npc-modal:not(.is-open):not(.is-closing) .gm-npc-modal__overlay {
+  opacity: 0;
+}
+
+.gm-npc-modal.is-closing .gm-npc-modal__overlay {
+  opacity: 0;
+}
+
+/* Modal Content */
+.gm-npc-modal__content {
+  position: relative;
+  max-width: 800px;
+  max-height: 90vh;
+  width: 100%;
+  background: linear-gradient(135deg, #0a0e1a 0%, #1a1f35 100%);
+  border: 2px solid #00d9ff;
+  border-radius: 8px;
+  box-shadow: 0 0 40px rgba(0, 217, 255, 0.3),
+    inset 0 0 20px rgba(0, 217, 255, 0.1);
+  overflow: hidden;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.gm-npc-modal.is-open .gm-npc-modal__content {
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+.gm-npc-modal.is-closing .gm-npc-modal__content {
+  animation: modalSlideOut 0.3s ease-in forwards;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modalSlideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+}
+
+/* Header */
+.gm-npc-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  background: linear-gradient(90deg, rgba(0, 217, 255, 0.1) 0%, transparent 100%);
+  border-bottom: 1px solid rgba(0, 217, 255, 0.3);
+}
+
+.gm-npc-modal__title {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #00d9ff;
+  text-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+  letter-spacing: 0.5px;
+}
+
+.gm-npc-modal__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.gm-npc-modal__close:hover {
+  background: rgba(255, 71, 87, 0.1);
+  border-color: #ff4757;
+  color: #ff4757;
+  box-shadow: 0 0 15px rgba(255, 71, 87, 0.3);
+}
+
+/* Body */
+.gm-npc-modal__body {
+  padding: 2rem;
+  max-height: calc(90vh - 100px);
+  overflow-y: auto;
+}
+
+.gm-npc-modal__body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.gm-npc-modal__body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.gm-npc-modal__body::-webkit-scrollbar-thumb {
+  background: rgba(0, 217, 255, 0.3);
+  border-radius: 4px;
+}
+
+.gm-npc-modal__body::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 217, 255, 0.5);
+}
+
+/* Portrait */
+.gm-npc-modal__portrait {
+  float: right;
+  margin: 0 0 1.5rem 1.5rem;
+  max-width: 300px;
+  border: 2px solid rgba(0, 217, 255, 0.5);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
+}
+
+.gm-npc-modal__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Excerpt */
+.gm-npc-modal__excerpt {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(0, 217, 255, 0.05);
+  border-left: 3px solid #00d9ff;
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+.gm-npc-modal__excerpt p {
+  margin: 0;
+}
+
+/* Details/Stats */
+.gm-npc-modal__details {
+  color: #e2e8f0;
+  line-height: 1.7;
+}
+
+.gm-npc-modal__details h3,
+.gm-npc-modal__details h4 {
+  color: #00d9ff;
+  margin: 1.5rem 0 0.75rem;
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(0, 217, 255, 0.3);
+}
+
+.gm-npc-modal__details h3 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid rgba(0, 217, 255, 0.3);
+  padding-bottom: 0.5rem;
+}
+
+.gm-npc-modal__details h4 {
+  font-size: 1.2rem;
+}
+
+.gm-npc-modal__details p {
+  margin: 0.75rem 0;
+}
+
+.gm-npc-modal__details ul,
+.gm-npc-modal__details ol {
+  margin: 0.75rem 0;
+  padding-left: 1.5rem;
+}
+
+.gm-npc-modal__details li {
+  margin: 0.5rem 0;
+}
+
+.gm-npc-modal__details strong {
+  color: #60efff;
+  font-weight: 600;
+}
+
+.gm-npc-modal__details code {
+  padding: 0.2rem 0.4rem;
+  background: rgba(0, 217, 255, 0.1);
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+  color: #60efff;
+}
+
+.gm-npc-modal__details blockquote {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 3px solid rgba(0, 217, 255, 0.5);
+  font-style: italic;
+}
+
+/* Class Badge */
+.npc-class-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, rgba(0, 217, 255, 0.15) 0%, rgba(0, 217, 255, 0.05) 100%);
+  border: 1px solid rgba(0, 217, 255, 0.3);
+  border-radius: 4px;
+}
+
+.npc-class-badge__label {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.npc-class-badge__value {
+  font-size: 1rem;
+  color: #00d9ff;
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(0, 217, 255, 0.3);
+}
+
+/* Stats Grid */
+.npc-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(0, 217, 255, 0.05);
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  border-radius: 6px;
+}
+
+.npc-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.npc-stat__label {
+  font-size: 0.75rem;
+  color: #60efff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.npc-stat__value {
+  font-size: 1.5rem;
+  color: #00d9ff;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+}
+
+/* Attributes Grid */
+.npc-attributes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.npc-attribute {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(0, 217, 255, 0.15);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.npc-attribute:hover {
+  background: rgba(0, 217, 255, 0.05);
+  border-color: rgba(0, 217, 255, 0.3);
+}
+
+.npc-attribute__label {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.4rem;
+}
+
+.npc-attribute__value {
+  font-size: 1.25rem;
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+/* Abilities */
+.npc-abilities {
+  margin-bottom: 2rem;
+}
+
+.npc-ability {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 3px solid rgba(0, 217, 255, 0.5);
+  border-radius: 4px;
+}
+
+.npc-ability__name {
+  color: #60efff;
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+}
+
+.npc-ability__description {
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.npc-ability__description p {
+  margin: 0.5rem 0;
+}
+
+.npc-ability__description p:first-child {
+  margin-top: 0;
+}
+
+.npc-ability__description p:last-child {
+  margin-bottom: 0;
+}
+
+/* Skills Grid */
+.npc-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.npc-skill {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(0, 217, 255, 0.1);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.npc-skill:hover {
+  background: rgba(0, 217, 255, 0.05);
+  border-color: rgba(0, 217, 255, 0.2);
+}
+
+.npc-skill__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.npc-skill__name {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+.npc-skill__attribute {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.npc-skill__value {
+  font-size: 0.75rem;
+  color: #cbd5e1;
+  font-weight: 300;
+}
+
+.npc-skill__pool {
+  font-size: 1.25rem;
+  color: #00d9ff;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(0, 217, 255, 0.4);
+  min-width: 2rem;
+  text-align: center;
+  border: 1px solid rgba(0, 217, 255, 0.15);
+  border-radius: 4px;
+  background: rgba(0, 217, 255, 0.05);
+}
+
+/* Talents */
+.npc-talents {
+  margin-bottom: 2rem;
+}
+
+.npc-talents__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.npc-talents__list li {
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  background: rgba(0, 217, 255, 0.05);
+  border-left: 3px solid rgba(0, 217, 255, 0.4);
+  border-radius: 4px;
+  color: #e2e8f0;
+  line-height: 1.5;
+}
+
+.npc-talents__list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Gear Sections */
+.npc-gear-section {
+  margin-bottom: 2rem;
+  color: #e2e8f0;
+  line-height: 1.6;
+}
+
+.npc-gear-section p {
+  margin: 0.75rem 0;
+}
+
+.npc-gear__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.npc-gear__list li {
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  position: relative;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+.npc-gear__list li:before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #60efff;
+  font-size: 0.9em;
+}
+
+/* Cyberware special styling */
+.npc-cyberware .npc-gear__list li:before {
+  content: "⚡";
+}
+
+/* GM Notes within modal */
+.gm-npc-modal__details .gm-notes {
+  margin: 1.5rem 0;
+}
+
+/* Body class when modal is open */
+body.npc-modal-open {
+  overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .gm-npc-modal__content {
+    max-height: 95vh;
+  }
+
+  .gm-npc-modal__portrait {
+    float: none;
+    margin: 0 0 1.5rem;
+    max-width: 100%;
+  }
+
+  .gm-npc-modal__title {
+    font-size: 1.5rem;
+  }
+
+  .gm-npc-modal__body {
+    padding: 1.5rem;
+  }
+}

@@ -8,6 +8,7 @@ require_once get_theme_file_path('/inc/taxonomies/act.php');
 require_once get_theme_file_path('/inc/taxonomies/scene-type.php');
 
 require_once get_theme_file_path('inc/assets.php');
+require_once get_theme_file_path('inc/npc.php');
 
 
 add_action('init', function () {

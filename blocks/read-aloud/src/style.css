@@ -12,10 +12,20 @@
 }
 
 .read-aloud__header {
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 1rem;
+	background: transparent;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	transition: opacity 0.2s ease;
+}
+
+.read-aloud__header:hover {
+	opacity: 0.8;
 }
 
 .read-aloud__label {
@@ -25,17 +35,27 @@
 	font-weight: 600;
 }
 
-.read-aloud__copy {
-	background: rgba(255, 255, 255, 0.06);
-	border: 1px solid rgba(255, 255, 255, 0.12);
-	color: #cdeff7;
-	border-radius: 6px;
-	padding: 0.35rem 0.75rem;
-	cursor: pointer;
+.read-aloud__icon {
+	color: #00e5ff;
+	transition: transform 0.3s ease;
+	flex-shrink: 0;
 }
 
-.read-aloud__copy:hover {
-	background: rgba(0, 229, 255, 0.15);
+.read-aloud:not(.is-open) .read-aloud__icon {
+	transform: rotate(-90deg);
+}
+
+.read-aloud__content {
+	max-height: 1000px;
+	overflow: hidden;
+	transition: max-height 0.3s ease, opacity 0.3s ease;
+	opacity: 1;
+}
+
+.read-aloud:not(.is-open) .read-aloud__content {
+	max-height: 0;
+	opacity: 0;
+	margin-bottom: 0;
 }
 
 .read-aloud__content p {
