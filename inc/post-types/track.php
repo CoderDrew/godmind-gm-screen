@@ -6,9 +6,9 @@
 
 add_action('init', function () {
 
-    register_post_type('music', [
+    register_post_type('track', [
         'labels' => [
-            'name'          => 'Music',
+            'name'          => 'Track',
             'singular_name' => 'Track',
         ],
         'public'        => false,
@@ -16,8 +16,7 @@ add_action('init', function () {
         'show_in_rest'  => true,
         'menu_icon'     => 'dashicons-format-audio',
         'supports'      => [
-            'title',
-            'editor', // Embed + GM notes
+            'title'
         ],
     ]);
 });

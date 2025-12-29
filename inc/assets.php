@@ -36,5 +36,24 @@ function godmind_enqueue_assets()
         wp_get_theme()->get('Version'),
         true // Load in footer
     );
+
+    // Audio Player styles (only load on Scene pages)
+    if (is_singular('scene')) {
+        wp_enqueue_style(
+            'godmind-audio-player',
+            get_theme_file_uri('assets/css/audio-player.css'),
+            [],
+            wp_get_theme()->get('Version')
+        );
+
+        // Audio Player JavaScript
+        wp_enqueue_script(
+            'godmind-audio-player',
+            get_theme_file_uri('assets/js/audio-player.js'),
+            [],
+            wp_get_theme()->get('Version'),
+            true // Load in footer
+        );
+    }
 }
 add_action('wp_enqueue_scripts', 'godmind_enqueue_assets');

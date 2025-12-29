@@ -1,0 +1,276 @@
+/**
+ * Custom Audio Player Styles
+ *
+ * Minimal, intentional GM control interface.
+ * Designed to match Godmind cyberpunk theme aesthetic.
+ */
+
+.godmind-audio-player {
+    --player-bg: #1a1a2e;
+    --player-border: #16213e;
+    --player-accent: #0f3460;
+    --player-highlight: #e94560;
+    --player-text: #eaeaea;
+    --player-text-muted: #a0a0a0;
+    --player-radius: 8px;
+    --player-spacing: 1rem;
+
+    background: linear-gradient(135deg, rgba(10, 14, 26, 0.9) 0%, rgba(26, 31, 53, 0.9) 100%);
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    border-radius: var(--player-radius);
+    padding: var(--player-spacing);
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
+                inset 0 0 15px rgba(0, 217, 255, 0.05);
+    transition: all 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Track Info Section */
+.audio-player__info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+    gap: 1rem;
+}
+
+.audio-player__info-main {
+    flex: 1;
+}
+
+.audio-player__title {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #00d9ff;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 8px rgba(0, 217, 255, 0.3);
+}
+
+.audio-player__purpose {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #cbd5e1;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.audio-player__metadata {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.audio-player__type {
+    font-size: 0.75rem;
+    color: #60efff;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    background: rgba(0, 217, 255, 0.1);
+    border-radius: 4px;
+    border: 1px solid rgba(0, 217, 255, 0.3);
+}
+
+.audio-player__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    color: #00d9ff;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    background: rgba(0, 217, 255, 0.1);
+    border-radius: 4px;
+    border: 1px solid rgba(0, 217, 255, 0.3);
+}
+
+.audio-player__badge svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* Controls Section */
+.audio-player__controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Play/Pause Button */
+.audio-player__play-pause {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--player-accent);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.audio-player__play-pause:hover {
+    background: var(--player-highlight);
+    transform: scale(1.05);
+}
+
+.audio-player__play-pause:active {
+    transform: scale(0.95);
+}
+
+.audio-player__play-pause:focus {
+    outline: 2px solid var(--player-highlight);
+    outline-offset: 2px;
+}
+
+/* Icon States */
+.audio-player__icon {
+    width: 24px;
+    height: 24px;
+    color: var(--player-text);
+}
+
+.audio-player__icon--pause {
+    display: none;
+}
+
+.audio-player__play-pause[data-state="playing"] .audio-player__icon--play {
+    display: none;
+}
+
+.audio-player__play-pause[data-state="playing"] .audio-player__icon--pause {
+    display: block;
+}
+
+/* Volume Control */
+.audio-player__volume {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+}
+
+.audio-player__volume-label {
+    display: flex;
+    align-items: center;
+    color: var(--player-text-muted);
+    cursor: pointer;
+    margin: 0;
+}
+
+.audio-player__volume-label svg {
+    width: 20px;
+    height: 20px;
+}
+
+.audio-player__volume-slider {
+    flex: 1;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--player-border);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* Slider Thumb - WebKit */
+.audio-player__volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--player-highlight);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.audio-player__volume-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 4px rgba(233, 69, 96, 0.2);
+}
+
+/* Slider Thumb - Firefox */
+.audio-player__volume-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: var(--player-highlight);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.audio-player__volume-slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 4px rgba(233, 69, 96, 0.2);
+}
+
+/* Slider Track - Firefox */
+.audio-player__volume-slider::-moz-range-track {
+    background: var(--player-border);
+    border-radius: 2px;
+}
+
+.audio-player__volume-value {
+    min-width: 3.5rem;
+    text-align: right;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--player-text-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Hidden Audio Element */
+.audio-player__element {
+    display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .godmind-audio-player {
+        --player-spacing: 0.75rem;
+    }
+
+    .audio-player__controls {
+        gap: 1rem;
+    }
+
+    .audio-player__play-pause {
+        width: 40px;
+        height: 40px;
+    }
+
+    .audio-player__icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .audio-player__volume-value {
+        min-width: 3rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Track Type Variations (optional styling hooks) */
+.godmind-audio-player[data-track-type="ambient"] {
+    /* Could add ambient-specific styling */
+}
+
+.godmind-audio-player[data-track-type="sfx"] {
+    /* Could add sfx-specific styling */
+}
+
+.godmind-audio-player[data-track-type="music"] {
+    /* Could add music-specific styling */
+}

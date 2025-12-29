@@ -1,0 +1,12 @@
+/**
+ * Audio Player Block - Editor Styles
+ */
+
+.godmind-audio-player-editor-preview {
+	max-width: 600px;
+}
+
+.godmind-audio-player-placeholder {
+	padding: 2rem;
+	text-align: center;
+}

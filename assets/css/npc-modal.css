@@ -112,6 +112,13 @@
   letter-spacing: 0.5px;
 }
 
+.gm-npc-modal__actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.gm-npc-modal__popout,
 .gm-npc-modal__close {
   display: flex;
   align-items: center;
@@ -124,6 +131,13 @@
   color: #94a3b8;
   cursor: pointer;
   transition: all 0.2s ease;
+}
+
+.gm-npc-modal__popout:hover {
+  background: rgba(0, 217, 255, 0.1);
+  border-color: #00d9ff;
+  color: #00d9ff;
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
 }
 
 .gm-npc-modal__close:hover {

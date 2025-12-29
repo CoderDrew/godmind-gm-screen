@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "godmind/audio-player",
+  "title": "Scene Audio Player",
+  "category": "godmind",
+  "icon": "controls-volumeon",
+  "description": "Display background music, ambient audio, or SFX for a scene.",
+  "keywords": ["audio", "music", "sound", "ambient", "sfx"],
+  "textdomain": "godmind",
+  "supports": {
+    "html": false,
+    "align": false,
+    "multiple": false
+  },
+  "attributes": {
+    "trackId": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "example": {},
+  "editorScript": "file:./build/index.js",
+  "editorStyle": "file:./build/index.css",
+  "render": "file:./render.php"
+}
