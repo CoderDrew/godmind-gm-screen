@@ -2,6 +2,15 @@
 	box-shadow: 0 0 0 1px rgba(0, 229, 255, 0.25);
 }
 
+/* Always show content in editor, regardless of is-open state */
 .read-aloud__content {
 	min-height: 120px;
+	max-height: none !important;
+	opacity: 1 !important;
+	overflow: visible !important;
+}
+
+/* Hide the collapse/expand UI in the editor */
+.read-aloud__icon {
+	display: none;
 }
