@@ -4,6 +4,14 @@
 function godmind_enqueue_assets()
 {
 
+    // Main global styles
+    wp_enqueue_style(
+        'godmind-main',
+        get_theme_file_uri('assets/css/main.css'),
+        [],
+        wp_get_theme()->get('Version')
+    );
+
     // Header component styles
     wp_enqueue_style(
         'godmind-header',

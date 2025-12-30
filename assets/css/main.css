@@ -1,0 +1,27 @@
+/**
+ * Main Stylesheet
+ *
+ * General utility classes and global styles for the Godmind theme.
+ */
+
+/* Utility class for equal height cards in rows */
+.wp-block-group.equal-height-cards,
+.wp-block-columns.equal-height-cards {
+	display: flex !important;
+	align-items: stretch !important;
+}
+
+/* Target all direct children (block wrappers) */
+.wp-block-group.equal-height-cards > *,
+.wp-block-columns.equal-height-cards > * {
+	display: flex !important;
+	flex-direction: column !important;
+}
+
+/* Make the actual card fill its wrapper and stretch */
+.equal-height-cards .gm-npc-card {
+	display: flex !important;
+	flex-direction: column !important;
+	flex: 1 !important;
+	min-height: 100% !important;
+}
