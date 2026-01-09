@@ -28,6 +28,23 @@ function godmind_enqueue_assets()
         wp_get_theme()->get('Version')
     );
 
+    // Sidebar navigation styles
+    wp_enqueue_style(
+        'godmind-sidebar',
+        get_theme_file_uri('assets/css/sidebar.css'),
+        [],
+        wp_get_theme()->get('Version')
+    );
+
+    // Sidebar navigation JavaScript
+    wp_enqueue_script(
+        'godmind-sidebar',
+        get_theme_file_uri('assets/js/sidebar.js'),
+        [],
+        wp_get_theme()->get('Version'),
+        true // Load in footer
+    );
+
     // NPC Modal styles
     wp_enqueue_style(
         'godmind-npc-modal',

@@ -1,0 +1,215 @@
+/**
+ * Sidebar Navigation Styles
+ * Cyberpunk-themed collapsible sidebar
+ */
+
+/* Sidebar Container */
+.gm-sidebar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 280px;
+	height: 100vh;
+	background: linear-gradient(180deg, rgba(10, 14, 26, 0.98) 0%, rgba(26, 31, 53, 0.98) 100%);
+	border-right: 1px solid rgba(0, 217, 255, 0.3);
+	box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5),
+				inset -1px 0 15px rgba(0, 217, 255, 0.05);
+	z-index: 1000;
+	transform: translateX(-100%);
+	transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+}
+
+/* Open State */
+.gm-sidebar:not(.is-collapsed) {
+	transform: translateX(0);
+}
+
+/* Collapsed State */
+.gm-sidebar.is-collapsed {
+	transform: translateX(-100%);
+}
+
+/* Sidebar Header */
+.gm-sidebar__header {
+	padding: 1.5rem 1.25rem;
+	border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+	background: linear-gradient(90deg, rgba(0, 217, 255, 0.08) 0%, transparent 100%);
+	flex-shrink: 0;
+}
+
+.gm-sidebar__header h3 {
+	margin: 0;
+	color: #00d9ff;
+	font-weight: 600;
+	text-shadow: 0 0 8px rgba(0, 217, 255, 0.3);
+	letter-spacing: 0.5px;
+}
+
+/* Toggle Button (inside sidebar) */
+.gm-sidebar__toggle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 4px;
+	color: #94a3b8;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	padding: 0;
+}
+
+.gm-sidebar__toggle:hover {
+	background: rgba(0, 217, 255, 0.1);
+	border-color: #00d9ff;
+	color: #00d9ff;
+	box-shadow: 0 0 12px rgba(0, 217, 255, 0.3);
+}
+
+/* Sidebar Content */
+.gm-sidebar__content {
+	flex: 1;
+	overflow-y: auto;
+	padding: 1.5rem 1rem;
+}
+
+.gm-sidebar__content::-webkit-scrollbar {
+	width: 6px;
+}
+
+.gm-sidebar__content::-webkit-scrollbar-track {
+	background: rgba(0, 0, 0, 0.2);
+	border-radius: 3px;
+}
+
+.gm-sidebar__content::-webkit-scrollbar-thumb {
+	background: rgba(0, 217, 255, 0.3);
+	border-radius: 3px;
+}
+
+.gm-sidebar__content::-webkit-scrollbar-thumb:hover {
+	background: rgba(0, 217, 255, 0.5);
+}
+
+/* Navigation Items */
+.gm-sidebar .wp-block-navigation {
+	gap: 0.5rem;
+}
+
+.gm-sidebar .wp-block-navigation-item {
+	margin: 0;
+}
+
+.gm-sidebar .wp-block-navigation-item__content {
+	display: block;
+	padding: 0.75rem 1rem;
+	color: #cbd5e1;
+	text-decoration: none;
+	border-radius: 4px;
+	transition: all 0.2s ease;
+	border: 1px solid transparent;
+}
+
+.gm-sidebar .wp-block-navigation-item__content:hover {
+	background: rgba(0, 217, 255, 0.1);
+	border-color: rgba(0, 217, 255, 0.3);
+	color: #00d9ff;
+	box-shadow: 0 0 10px rgba(0, 217, 255, 0.15);
+}
+
+.gm-sidebar .wp-block-navigation-item.current-menu-item .wp-block-navigation-item__content {
+	background: rgba(0, 217, 255, 0.15);
+	border-color: rgba(0, 217, 255, 0.4);
+	color: #00d9ff;
+	font-weight: 600;
+	box-shadow: 0 0 15px rgba(0, 217, 255, 0.2);
+}
+
+/* Toggle Button in Header (opens sidebar) */
+.gm-sidebar-toggle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	background: rgba(0, 217, 255, 0.05);
+	border: 1px solid rgba(0, 217, 255, 0.2);
+	border-radius: 4px;
+	color: #00d9ff;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	padding: 0;
+}
+
+.gm-sidebar-toggle:hover {
+	background: rgba(0, 217, 255, 0.15);
+	border-color: rgba(0, 217, 255, 0.4);
+	box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
+}
+
+.gm-sidebar-toggle.is-hidden {
+	opacity: 0;
+	pointer-events: none;
+}
+
+/* Body class when sidebar is open */
+body.sidebar-open {
+	overflow: hidden;
+}
+
+/* Overlay for mobile */
+.gm-sidebar-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.7);
+	backdrop-filter: blur(2px);
+	z-index: 999;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s ease;
+}
+
+.gm-sidebar-overlay.is-visible {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+/* Main content offset when sidebar is open */
+body:not(.sidebar-open) .wp-site-blocks {
+	margin-left: 0;
+	transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 1024px) {
+	body.sidebar-open .wp-site-blocks {
+		margin-left: 280px;
+		transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	.gm-sidebar-overlay {
+		display: none;
+	}
+}
+
+/* Mobile: Sidebar overlays content */
+@media (max-width: 1023px) {
+	.gm-sidebar {
+		box-shadow: 4px 0 30px rgba(0, 0, 0, 0.8),
+					inset -1px 0 15px rgba(0, 217, 255, 0.05);
+	}
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	.gm-sidebar {
+		width: 260px;
+	}
+}

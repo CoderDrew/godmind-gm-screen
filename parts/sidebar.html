@@ -1,0 +1,33 @@
+<!-- wp:group {
+  "tagName":"aside",
+  "className":"gm-sidebar is-collapsed",
+  "layout":{"type":"flex","orientation":"vertical"}
+} -->
+<aside class="wp-block-group gm-sidebar is-collapsed">
+  <!-- Sidebar Header -->
+  <!-- wp:group {"className":"gm-sidebar__header","layout":{"type":"flex","justifyContent":"space-between","verticalAlignment":"center"}} -->
+  <div class="wp-block-group gm-sidebar__header">
+    <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"1rem"}}} -->
+    <h3>Navigation</h3>
+    <!-- /wp:heading -->
+
+    <!-- wp:html -->
+    <button class="gm-sidebar__toggle" aria-label="Close sidebar">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+        <path d="M5 3h14s2 0 2 2v14s0 2 -2 2H5s-2 0 -2 -2V5s0 -2 2 -2" stroke-width="2"></path>
+        <path d="M9 3v18" stroke-width="2"></path>
+        <path d="m16 15 -3 -3 3 -3" stroke-width="2"></path>
+      </svg>
+    </button>
+    <!-- /wp:html -->
+  </div>
+  <!-- /wp:group -->
+
+  <!-- Sidebar Content -->
+  <!-- wp:group {"className":"gm-sidebar__content","layout":{"type":"flex","orientation":"vertical"}} -->
+  <div class="wp-block-group gm-sidebar__content">
+    <!-- wp:navigation {"orientation":"vertical"} /-->
+  </div>
+  <!-- /wp:group -->
+</aside>
+<!-- /wp:group -->
