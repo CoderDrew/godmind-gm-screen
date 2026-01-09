@@ -81,6 +81,16 @@ function godmind_enqueue_assets()
         );
     }
 
+    // Scene Archive styles (only on Scene archive page)
+    if (is_post_type_archive('scene')) {
+        wp_enqueue_style(
+            'godmind-scene-archive',
+            get_theme_file_uri('assets/css/scene-archive.css'),
+            [],
+            wp_get_theme()->get('Version')
+        );
+    }
+
     // Audio Player styles (only load on Scene pages)
     if (is_singular('scene')) {
         wp_enqueue_style(
