@@ -9,7 +9,9 @@ require_once get_theme_file_path('/inc/taxonomies/scene-type.php');
 
 require_once get_theme_file_path('inc/assets.php');
 require_once get_theme_file_path('inc/npc.php');
+require_once get_theme_file_path('inc/npc-archive.php');
 require_once get_theme_file_path('inc/audio-player.php');
+require_once get_theme_file_path('inc/sidebar-nav.php');
 
 
 add_action('init', function () {

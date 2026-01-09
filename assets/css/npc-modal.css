@@ -361,8 +361,15 @@
 
 .npc-attribute__value {
   font-size: 1.25rem;
-  color: #e2e8f0;
-  font-weight: 600;
+  color: #00d9ff;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(0, 217, 255, 0.4);
+  min-width: 2rem;
+  text-align: center;
+  border: 1px solid rgba(0, 217, 255, 0.15);
+  border-radius: 4px;
+  background: rgba(0, 217, 255, 0.05);
+  padding: 0.25rem 0.5rem;
 }
 
 /* Abilities */

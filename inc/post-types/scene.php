@@ -12,6 +12,7 @@ add_action('init', function () {
             'singular_name' => 'Scene',
         ],
         'public'        => true,
+        'has_archive'   => true,
         'show_in_rest'  => true,
         'menu_icon'     => 'dashicons-controls-play',
         'supports'      => [

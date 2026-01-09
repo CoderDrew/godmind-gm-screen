@@ -8,10 +8,11 @@ add_action('init', function () {
 
     register_post_type('track', [
         'labels' => [
-            'name'          => 'Track',
+            'name'          => 'Tracks',
             'singular_name' => 'Track',
         ],
-        'public'        => false,
+        'public'        => true,
+        'has_archive'   => true,
         'show_ui'       => true,
         'show_in_rest'  => true,
         'menu_icon'     => 'dashicons-format-audio',

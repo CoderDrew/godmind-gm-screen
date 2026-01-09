@@ -62,6 +62,25 @@ function godmind_enqueue_assets()
         true // Load in footer
     );
 
+    // NPC Archive styles (only on NPC archive page)
+    if (is_post_type_archive('npc')) {
+        wp_enqueue_style(
+            'godmind-npc-archive',
+            get_theme_file_uri('assets/css/npc-archive.css'),
+            [],
+            wp_get_theme()->get('Version')
+        );
+
+        // NPC Archive JavaScript
+        wp_enqueue_script(
+            'godmind-npc-archive',
+            get_theme_file_uri('assets/js/npc-archive.js'),
+            [],
+            wp_get_theme()->get('Version'),
+            true // Load in footer
+        );
+    }
+
     // Audio Player styles (only load on Scene pages)
     if (is_singular('scene')) {
         wp_enqueue_style(
