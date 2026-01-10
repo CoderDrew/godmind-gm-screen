@@ -20,6 +20,7 @@ add_action('init', function () {
             'editor',     // GM Notes (use blocks)
             'excerpt',    // Scene tagline
             'revisions',
+            'page-attributes', // Enables menu order
         ],
         'rewrite' => [
             'slug' => 'scene',

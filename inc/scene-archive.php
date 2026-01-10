@@ -17,7 +17,7 @@ function godmind_render_scene_archive_list() {
     $args = array(
         'post_type' => 'scene',
         'posts_per_page' => -1, // Get all scenes
-        'orderby' => 'title',
+        'orderby' => 'menu_order',
         'order' => 'ASC',
     );
 
