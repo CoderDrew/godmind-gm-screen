@@ -1,12 +1,11 @@
 <?php
-$content = $attributes['content'] ?? '';
-
+// Check if block has inner content
 if (empty($content)) {
     return;
 }
 ?>
 
-<div class="read-aloud">
+<div <?php echo get_block_wrapper_attributes(['class' => 'read-aloud']); ?>>
     <button class="read-aloud__header" type="button" aria-expanded="false">
         <span class="read-aloud__label">READ ALOUD</span>
         <svg class="read-aloud__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
@@ -15,6 +14,6 @@ if (empty($content)) {
     </button>
 
     <div class="read-aloud__content">
-        <?php echo wp_kses_post(wpautop($content)); ?>
+        <?php echo $content; ?>
     </div>
 </div>

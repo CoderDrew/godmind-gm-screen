@@ -37,10 +37,33 @@ function godmind_render_scene_archive_list() {
         $scene_excerpt = get_the_excerpt();
         $scene_link = get_permalink($scene_id);
 
+        // Get taxonomies
+        $acts = get_the_terms($scene_id, 'act');
+        $scene_types = get_the_terms($scene_id, 'scene_type');
+
         echo '<a href="' . esc_url($scene_link) . '" class="gm-scene-card">';
 
         echo '<div class="gm-scene-card__content">';
         echo '<h2 class="gm-scene-card__title">' . esc_html($scene_title) . '</h2>';
+
+        // Display categories
+        if ($acts || $scene_types) {
+            echo '<div class="gm-scene-card__categories">';
+
+            if ($acts && !is_wp_error($acts)) {
+                foreach ($acts as $act) {
+                    echo '<span class="gm-scene-card__category gm-scene-card__category--act">' . esc_html($act->name) . '</span>';
+                }
+            }
+
+            if ($scene_types && !is_wp_error($scene_types)) {
+                foreach ($scene_types as $scene_type) {
+                    echo '<span class="gm-scene-card__category gm-scene-card__category--type">' . esc_html($scene_type->name) . '</span>';
+                }
+            }
+
+            echo '</div>';
+        }
 
         if ($scene_excerpt) {
             echo '<p class="gm-scene-card__excerpt">' . esc_html($scene_excerpt) . '</p>';

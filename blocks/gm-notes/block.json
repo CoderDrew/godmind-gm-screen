@@ -9,11 +9,6 @@
     "html": false
   },
   "attributes": {
-    "content": {
-      "type": "string",
-      "source": "html",
-      "selector": ".gm-notes__content"
-    },
     "isOpen": {
       "type": "boolean",
       "default": true

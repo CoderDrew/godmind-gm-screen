@@ -1,10 +1,24 @@
-import { useBlockProps, RichText } from "@wordpress/block-editor";
+import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 import { PanelBody, ToggleControl } from "@wordpress/components";
 import { InspectorControls } from "@wordpress/editor";
-import { useState } from "@wordpress/element";
 
 export default function Edit({ attributes, setAttributes }) {
-  const { content, isOpen = true } = attributes;
+  const { isOpen = true } = attributes;
+
+  const ALLOWED_BLOCKS = [
+    'core/paragraph',
+    'core/heading',
+    'core/list',
+    'core/image',
+    'core/quote',
+    'core/table',
+    'core/separator',
+    'core/spacer'
+  ];
+
+  const TEMPLATE = [
+    ['core/paragraph', { placeholder: 'Private notes for the GM…' }]
+  ];
 
   return (
     <>
@@ -24,14 +38,12 @@ export default function Edit({ attributes, setAttributes }) {
         </div>
 
         {isOpen && (
-          <RichText
-            tagName="div"
-            className="gm-notes__content"
-            value={content}
-            onChange={(value) => setAttributes({ content: value })}
-            placeholder="Private notes for the GM…"
-            multiline="p"
-          />
+          <div className="gm-notes__content">
+            <InnerBlocks
+              allowedBlocks={ALLOWED_BLOCKS}
+              template={TEMPLATE}
+            />
+          </div>
         )}
       </div>
     </>

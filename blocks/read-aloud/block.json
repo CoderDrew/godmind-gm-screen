@@ -1,16 +1,10 @@
 {
-  "apiVersion": 2,
+  "apiVersion": 3,
   "name": "godmind/read-aloud",
   "title": "Read Aloud",
   "category": "text",
   "icon": "controls-volumeon",
   "description": "Narrative text to be read aloud to players.",
-  "attributes": {
-    "content": {
-      "type": "string",
-      "default": ""
-    }
-  },
   "supports": {
     "html": false
   },

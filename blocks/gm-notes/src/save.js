@@ -1,7 +1,7 @@
-import { useBlockProps, RichText } from "@wordpress/block-editor";
+import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 
 export default function Save({ attributes }) {
-  const { content, isOpen } = attributes;
+  const { isOpen } = attributes;
 
   return (
     <div {...useBlockProps.save({ className: "gm-notes" })}>
@@ -10,11 +10,9 @@ export default function Save({ attributes }) {
       </div>
 
       {isOpen && (
-        <RichText.Content
-          tagName="div"
-          className="gm-notes__content"
-          value={content}
-        />
+        <div className="gm-notes__content">
+          <InnerBlocks.Content />
+        </div>
       )}
     </div>
   );

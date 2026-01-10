@@ -72,6 +72,45 @@
 	line-height: 1.3;
 }
 
+.gm-scene-card__categories {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin-bottom: 0.75rem;
+}
+
+.gm-scene-card__category {
+	display: inline-block;
+	padding: 0.25rem 0.75rem;
+	font-size: 0.75rem;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	border-radius: 12px;
+	background: rgba(0, 217, 255, 0.1);
+	border: 1px solid rgba(0, 217, 255, 0.3);
+	color: #00d9ff;
+	transition: all 0.2s ease;
+}
+
+.gm-scene-card:hover .gm-scene-card__category {
+	background: rgba(0, 217, 255, 0.15);
+	border-color: rgba(0, 217, 255, 0.5);
+	box-shadow: 0 0 8px rgba(0, 217, 255, 0.2);
+}
+
+.gm-scene-card__category--act {
+	background: rgba(168, 85, 247, 0.1);
+	border-color: rgba(168, 85, 247, 0.3);
+	color: #a855f7;
+}
+
+.gm-scene-card:hover .gm-scene-card__category--act {
+	background: rgba(168, 85, 247, 0.15);
+	border-color: rgba(168, 85, 247, 0.5);
+	box-shadow: 0 0 8px rgba(168, 85, 247, 0.2);
+}
+
 .gm-scene-card__excerpt {
 	font-size: 0.95rem;
 	color: #94a3b8;
