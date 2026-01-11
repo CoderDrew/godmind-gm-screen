@@ -8,6 +8,8 @@ module.exports = {
     'gm-notes/build/index': './blocks/gm-notes/src/index.js',
     'npc-cards/build/index': './blocks/npc-cards/src/index.js',
     'audio-player/build/index': './blocks/audio-player/src/index.js',
+    'audio-player/build/view': './blocks/audio-player/src/view.js',
+    'audio-player/build/style-index': './blocks/audio-player/src/style.css',
   },
   output: {
     filename: '[name].js',
