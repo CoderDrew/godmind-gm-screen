@@ -14,6 +14,8 @@ require_once get_theme_file_path('inc/scene-archive.php');
 require_once get_theme_file_path('inc/scene-back-link.php');
 require_once get_theme_file_path('inc/audio-player.php');
 require_once get_theme_file_path('inc/sidebar-nav.php');
+require_once get_theme_file_path('inc/track-archive.php');
+require_once get_theme_file_path('inc/track-archive-assets.php');
 
 
 add_action('init', function () {
